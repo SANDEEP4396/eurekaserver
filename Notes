@@ -1,0 +1,5 @@
+Use this command to install mysql in docker
+# docker run -p 3306:3306 --name accountsDB -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=accountsDB -d mysql
+
+Use SqlEctron to connect to the database with the following credentials:
+Host: localhost

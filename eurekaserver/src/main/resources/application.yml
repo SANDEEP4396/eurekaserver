@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: "eurekaserver"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  # We need to set up encryption and decryption for sensitive configuration properties, such as database credentials or API keys. This is done by specifying the encryption key in the configuration server's application.yml file. The "encrypt.key" property is used to define the key that will be used for encrypting and decrypting sensitive properties. This key should be kept secure and should not be hardcoded in the source code. Instead,
+  #it can be provided through environment variables or externalized configuration to ensure that it is not exposed in version control systems.
